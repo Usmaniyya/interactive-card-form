@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Interactive card details form</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="container">
+        <div class="left-section">
+          <div class="cards">
+            <div class="front-card">
+              <img
+                src="images/card-logo.svg"
+                alt="card logo"
+                class="card-logo"
+              />
+              <div class="card-container">
+                <img src="images/bg-card-front.png" alt="card front" />
+                <h1 id="number">0000 0000 0000 0000</h1>
+                <div class="card-info">
+                  <span id="name">Jane Appleseed</span>
+                  <span id="date">
+                    <span id="month">00</span>
+                    /
+                    <span id="year">00</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="back-card">
+              <img src="images/bg-card-back.png" alt="back card" />
+              <span id="cvv">000</span>
+            </div>
+          </div>
+        </div>
+        <div class="right-section">
+          <form>
+            <div class="grid-1">
+              <label for="card-name">cardholder name</label>
+              <div>
+                <input
+                  class="reset"
+                  type="text"
+                  id="card-name"
+                  placeholder="e.g Jane Appleseed"
+                  required
+                />
+              </div>
+            </div>
+            <div class="grid-2">
+              <label for="card-number">card number</label>
+              <div>
+                <input
+                  class="reset"
+                  type="number"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  minlength="16"
+                  maxlength="16"
+                  placeholder="e.g 1234 5678 9100 0000"
+                  id="card-number"
+                  required
+                />
+              </div>
+            </div>
+            <div class="card-information">
+              <div id="card-date">
+                <label for="card-date">Exp. Date (MM/YY)</label>
+                <div class="two-input">
+                  <div>
+                    <input
+                      class="reset"
+                      type="number"
+                      placeholder="MM"
+                      oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      minlength="2"
+                      maxlength="2"
+                      id="card-month"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      class="reset"
+                      type="number"
+                      placeholder="YY"
+                      oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      minlength="2"
+                      maxlength="2"
+                      id="card-year"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="grid-4">
+                <label for="card-cvv">CVV</label>
+                <div>
+                  <input
+                    class="reset"
+                    type="number"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    placeholder="e.g 123"
+                    minlength="3"
+                    maxlength="3"
+                    id="card-cvv"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <button type="submit" id="btn-submit">Confirm</button>
+          </form>
+          <div class="success-container hidden">
+            <img src="images/icon-complete.svg" alt="completed" />
+            <h1>Thank you!</h1>
+            <p>We've added your card details</p>
+            <button id="success-btn">
+              Continue
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
